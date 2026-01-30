@@ -4,9 +4,6 @@
 
 ## Introduction
 
-<!-- We introduce ETS (Energy-Guided Test-Time Scaling), a training-free method for sampling directly from the optimal RL policy in masked language models.  -->
-## Introduction
-
 We introduce **ETS (Energy-Guided Test-Time Scaling)**, a *training-free* inference method that samples directly from the **optimal RL policy** under a unified **Masked Language Modeling (MLM)** framework that covers both:
 - **Autoregressive Models (ARMs)**
 - **Diffusion Language Models (DLMs)**
