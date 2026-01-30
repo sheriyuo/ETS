@@ -60,6 +60,13 @@ cd qwen
 bash eval.sh
 ```
 
+### Diffusion Language model
+
+```bash
+cd llada
+bash eval.sh
+```
+
 ## Citation
 
 ```bibtex
