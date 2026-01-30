@@ -4,7 +4,17 @@
 
 ## Introduction
 
-We introduce ETS (Energy-Guided Test-Time Scaling), a training-free method for sampling directly from the optimal RL policy in masked language models (both autoregressive model and diffusion language model). 
+<!-- We introduce ETS (Energy-Guided Test-Time Scaling), a training-free method for sampling directly from the optimal RL policy in masked language models.  -->
+## Introduction
+
+We introduce **ETS (Energy-Guided Test-Time Scaling)**, a *training-free* inference method that samples directly from the **optimal RL policy** under a unified **Masked Language Modeling (MLM)** framework that covers both:
+- **Autoregressive Models (ARMs)**
+- **Diffusion Language Models (DLMs)**
+
+**Core idea:**  
+For RL objective, the optimal policy admits a closed-form structure. ETS leverages this to construct an *optimal transition kernel* that factorizes into:
+- a **reference transition** given by a base model $p_{\mathrm{ref}}$, and  
+- an **energy term** that is a conditional expectation of exponentiated rewards.
 
 ![](main_fig.png)
 
@@ -18,6 +28,33 @@ pip install -e .
 ```
 
 ## Evaluation
+### Hyperparameters you will tune
+
+ETS compute is dominated by three hyperparameters:
+- $M$: number of candidates per guidance step
+- $K$: number of Monte Carlo estimation
+- $I$: number of guidance steps
+
+For evaluating **autoregressive models (Qwen)**, the ETS compute parameters map to:
+- **M**: `m_candidates` 
+- **K**: `k_monte_carlo`
+- **I** is **implicit** . It is determined by the total decoding length and block granularity:
+  - `max_length` = total generation length $d_x$
+  - `block_size` = block length $B$
+  - so $I = \lceil \mathrm{max\_length} / \mathrm{block\_size} \rceil$
+
+For evaluating **diffusion language models (LLaDA)**, the mapping is explicit:
+- **I**: `guide_steps`
+- **M**: `num_candidates`
+- **K**: `monte_carlo_num` 
+
+We evaluate in a pass@1 setting on:
+
+- Math/Reasoning: MATH500, GSM8K
+
+- Coding: HumanEval
+
+- STEM: GPQA (Diamond)
 
 ### Autoregressive model
 
