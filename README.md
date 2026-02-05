@@ -1,6 +1,6 @@
 # ETS: Energy-Guided Test-Time Scaling for Training-Free RL Alignment
 
-[![arXiv](https://img.shields.io/badge/Paper-arXiv-red.svg)](https://arxiv.org/abs/2601.21484)
+[![arXiv](https://img.shields.io/badge/arXiv%20paper-2601.21484-b31b1b.svg)](https://arxiv.org/abs/2601.21484)
 
 ## Introduction
 
