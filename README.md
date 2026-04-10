@@ -1,6 +1,18 @@
 # ETS: Energy-Guided Test-Time Scaling for Training-Free RL Alignment
 
-[![arXiv](https://img.shields.io/badge/arXiv%20paper-2601.21484-b31b1b.svg)](https://arxiv.org/abs/2601.21484)
+[![arXiv](https://img.shields.io/badge/arXiv-2601.21484-b31b1b.svg)](https://arxiv.org/abs/2601.21484)
+[![Zhihu](https://img.shields.io/badge/Zhihu-ETS-blue)](https://zhuanlan.zhihu.com/p/2001982062979215914)
+[![X](https://img.shields.io/badge/X-Article-black)](https://x.com/sheriyuo/status/2042072816712085577)
+
+## News
+
+### New works
+
+- [2026.01.29] We have uploaded ETS paper to [arXiv](https://arxiv.org/abs/2601.21484), and open-sourced ETS on [Github](https://github.com/sheriyuo/ETS)!
+
+### New features in this repo
+
+- [WIP] Support vllm and RL evaluations (AIME avg@32) & fix exist [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness) bugs.
 
 ## Introduction
 
