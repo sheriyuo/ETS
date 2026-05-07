@@ -85,7 +85,7 @@ bash eval.sh
 ```bibtex
 @inproceedings{li2026ets,
   title={ETS: Energy-Guided Test-Time Scaling for Training-Free RL Alignment},
-  author={Xiuyu, Li and Jinkai, Zhang and Mingyang, Yi and Yu, Li and Longqiang, Wang and Yue, Wang and Ju, Fan},
+  author={Li, Xiuyu and Zhang, Jinkai and Yi, Mingyang and Li, Yu and Wang, Longqiang and Wang, Yue and Fan, Ju},
   booktitle={Forty-third International Conference on Machine Learning},
   year={2026}
 }
