@@ -8,6 +8,7 @@
 
 ### New works
 
+- [2026.05.01] ETS is accepted as a poster at ICML 2026.
 - [2026.01.29] We have uploaded ETS paper to [arXiv](https://arxiv.org/abs/2601.21484), and open-sourced ETS on [Github](https://github.com/sheriyuo/ETS)!
 
 ### New features in this repo
