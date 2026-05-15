@@ -11,7 +11,7 @@
 
 ### New features in this repo
 
-- [WIP] Support vllm and RL evaluations (AIME avg@32) & fix exist [lm-evaluation-harness](https://github.com/EleutherAI/lm-evaluation-harness) bugs.
+- [2026.05.15] Support vllm for ETS and AIME24 avg@32 evaluation for all methods.
 
 ## Introduction
 
@@ -40,7 +40,7 @@ pip install -e .
 
 ETS compute is dominated by three hyperparameters:
 - $M$: number of candidates per guidance step
-- $K$: number of Monte Carlo estimation
+- $K$: number of Monte Carlo estimation, $K=3$ works best in most cases
 - $I$: number of guidance steps
 
 For evaluating **autoregressive models (Qwen)**, the ETS compute parameters map to:
@@ -66,8 +66,17 @@ We evaluate in a pass@1 setting on:
 
 ### Autoregressive model
 
+Evaluate ETS with transformers:
+
 ```bash
 cd qwen
+bash eval.sh
+```
+
+Evaluate ETS with vllm:
+
+```bash
+cd qwen_vllm
 bash eval.sh
 ```
 
@@ -77,6 +86,20 @@ bash eval.sh
 cd llada
 bash eval.sh
 ```
+
+### Evaluation for AIME24 (lm_eval)
+
+1. Download [BytedTsinghua-SIA/AIME-2024](https://huggingface.co/datasets/BytedTsinghua-SIA/AIME-2024) to a local directory and update the data path in `aime24/aime24.yaml` to point to your local dataset.
+2. Replace the existing `utils.py` and `aime24.yaml` in `lm_eval/tasks/aime/`. For example:
+
+```bash
+rm -rf /usr/local/miniconda3/lib/python3.10/site-packages/lm_eval/tasks/aime/aime24.yaml
+rm -rf /usr/local/miniconda3/lib/python3.10/site-packages/lm_eval/tasks/aime/utils.py
+cp aime24/aime24.yaml /usr/local/miniconda3/lib/python3.10/site-packages/lm_eval/tasks/aime/aime24.yaml
+cp aime24/utils.py /usr/local/miniconda3/lib/python3.10/site-packages/lm_eval/tasks/aime/utils.py
+```
+
+3. Execute `eval_aime.sh`.
 
 ## Citation
 
